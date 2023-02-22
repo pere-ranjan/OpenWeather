@@ -25,6 +25,6 @@
 * Hilt
 
 
-* Kotlin _ver 1.7.21_
-* Android Studio _ver Android Studio Electric Eel | 2022.1.1_
+* **Kotlin** _ver 1.7.21_
+* **Android Studio** _ver Android Studio Electric Eel | 2022.1.1_
 
