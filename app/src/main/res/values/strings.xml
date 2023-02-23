@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">OpenWeather</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="register_user">Register User</string>
+    <string name="password">Password</string>
+    <string name="re_enter_password">Re enter password</string>
+    <string name="register">Register</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="home">HOME</string>
+    <string name="history">HISTORY</string>
+    <string name="defaultErrorText">* This filed is Required</string>
+    <string name="name_too_short">Name too short.</string>
+    <string name="email_not_valid">Email Not Valid</string>
+    <string name="password_too_short">Password Too short</string>
+    <string name="password_do_not_match">Password do not match</string>
+    <string name="email_already_in_use">Email already in use</string>
+    <string name="logged_in">Logged In</string>
+    <string name="wrong_password">Wrong Password</string>
+    <string name="email_not_found">Email address not found</string>
+    <string name="success">SUCCESS</string>
+    <string name="failed">FAILED</string>
 </resources>

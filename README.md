@@ -28,3 +28,30 @@
 * Kotlin _ver 1.7.21_
 * Android Studio _ver Android Studio Electric Eel | 2022.1.1_
 
+# Project Structure
+
+**Common**
+We have all the Utils, binding adapters and commonly used classes.
+
+**Data**
+Here we are having room database and the entities used inside our application.
+We are having Repository Implementation classes over here.
+
+**DI**
+We having all the Dependency Injection implementations.
+
+**Domain**
+This layer is separating the data layer and the viewmodel.
+Here we are having Repository class.
+
+**View**
+Having all the views along with there viewmodel inside the package.
+
+# Security
+
+* Room database encryption using SQLCipher.
+* Shared Preference encryption using `androidx.security`
+
+
+* Need to add the value for key(_DATABASE_PASS_) inside gradle.properties for Room database
+  encryption.
