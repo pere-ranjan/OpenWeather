@@ -7,7 +7,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.ranjan.openweather.R
 import com.ranjan.openweather.common.EncryptedSharedPreference
-import com.ranjan.openweather.view.home.HomeActivity
+import com.ranjan.openweather.view.dashboard.DashboardActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         val isUserLoggedIn = preferences.getBoolean("isLogin", false)
         if (isUserLoggedIn) {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             finish()
         }

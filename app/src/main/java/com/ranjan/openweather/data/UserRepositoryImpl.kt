@@ -3,7 +3,7 @@ package com.ranjan.openweather.data
 import com.ranjan.openweather.common.LoginResponse
 import com.ranjan.openweather.common.RegisterResponse
 import com.ranjan.openweather.data.database.UsersDao
-import com.ranjan.openweather.data.entities.User
+import com.ranjan.openweather.data.database.entities.User
 import com.ranjan.openweather.domain.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

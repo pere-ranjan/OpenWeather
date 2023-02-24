@@ -31,7 +31,7 @@ class LoginViewModelTest {
     private lateinit var viewModel: LoginViewModel
 
     @Before
-    fun init() {
+    fun setUp() {
         Dispatchers.setMain(dispatcher)
         viewModel = LoginViewModel(userRepo)
     }

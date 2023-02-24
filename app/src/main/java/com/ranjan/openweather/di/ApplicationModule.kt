@@ -2,6 +2,7 @@ package com.ranjan.openweather.di
 
 import android.content.Context
 import com.ranjan.openweather.common.EncryptedSharedPreference
+import com.ranjan.openweather.common.NetworkUtils
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,6 +19,9 @@ class ApplicationModule {
     @Singleton
     fun providesEncryptedSharedPref(@ApplicationContext context: Context) = EncryptedSharedPreference(context)
 
+    @Provides
+    @Singleton
+    fun providesNetworkUtils(@ApplicationContext context: Context) = NetworkUtils(context)
 
 
 }

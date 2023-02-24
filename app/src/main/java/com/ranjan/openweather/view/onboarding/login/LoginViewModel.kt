@@ -39,7 +39,7 @@ class LoginViewModel @Inject constructor(private val repo: UserRepository) : Vie
 
         if (_emailError.value == null && _passwordError.value == null) {
             viewModelScope.launch {
-                repo.login(email, password).collect {loginResponse->
+                repo.login(email, password).collect { loginResponse ->
                     when (loginResponse) {
                         LoginResponse.LoggedIn -> _loginResponse.value = true
                         LoginResponse.WrongPassword -> _passwordError.value = loginResponse.value

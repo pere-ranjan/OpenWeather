@@ -1,4 +1,4 @@
-package com.ranjan.openweather.data.entities
+package com.ranjan.openweather.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.Index

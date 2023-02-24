@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.ranjan.openweather.R
 import com.ranjan.openweather.common.EncryptedSharedPreference
 import com.ranjan.openweather.databinding.FragmentLoginBinding
-import com.ranjan.openweather.view.home.HomeActivity
+import com.ranjan.openweather.view.dashboard.DashboardActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -42,13 +42,13 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewModel
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = this@LoginFragment
 
         lifecycleScope.launch {
             viewModel.loginResponse.flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED).collect {
                 if (it) {
                     Toast.makeText(requireContext(), "Login Success", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(requireContext(), HomeActivity::class.java)
+                    val intent = Intent(requireContext(), DashboardActivity::class.java)
                     preference.putBoolean("isLogin", true)
                     startActivity(intent)
                     activity?.finish()

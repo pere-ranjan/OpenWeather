@@ -1,6 +1,6 @@
 package com.ranjan.openweather.data.database
 
-import com.ranjan.openweather.data.entities.User
+import com.ranjan.openweather.data.database.entities.User
 
 
 class DummyUserRepository : UsersDao {

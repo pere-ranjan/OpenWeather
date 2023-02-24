@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="weather"
+            type="com.ranjan.openweather.data.database.entities.Weather" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context="dev.ranjan.openweatherdemo.view.dashboard.home.HomeFragment">
+
+        <ViewSwitcher
+            android:id="@+id/vs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/noInternet"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="60dp"
+                        android:src="@drawable/no_internet" />
+
+                    <TextView
+                        android:id="@+id/error_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="@string/something_went_wrong" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tv_temp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text='@{weather.main.temp.toString()??""}'
+                    android:textSize="48sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+                    app:layout_constraintEnd_toStartOf="@id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@id/tv_location"
+                    tools:text="18\u2103" />
+
+                <TextView
+                    android:id="@+id/feels_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{weather.main.feelsLike??""}'
+                    app:layout_constraintEnd_toEndOf="@id/tv_temp"
+                    app:layout_constraintStart_toStartOf="@id/tv_temp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_temp"
+                    tools:text="Feels Like: 30\u2103" />
+
+                <ImageView
+                    android:id="@+id/iv_icon"
+                    loadImage="@{weather.weatherItemList.icon}"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@id/tv_location" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text='@{weather.weatherItemList.description??""}'
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+                    app:layout_constraintEnd_toEndOf="@id/iv_icon"
+                    app:layout_constraintStart_toStartOf="@id/iv_icon"
+                    tools:text="Error" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toStartOf="@id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@id/description">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sunrise: "
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@{weather.sysModel.sunrise}"
+                        tools:text="20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@id/description">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sunset: "
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@{weather.sysModel.sunset}"
+                        tools:text="20" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ViewSwitcher>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
